@@ -23,7 +23,7 @@ Após instalar os requisitos e dependências descritos abaixo, abra dois termina
    streamlit run app.py
    ```
 
-   O comando `ollama pull` baixa o modelo manualmente e só precisa ser executado uma vez. Edite `.env` para ajustar o modelo ou os limites de upload.
+   O comando `ollama pull` baixa o modelo manualmente e só precisa ser executado uma vez. Edite `.env` para ajustar o modelo, os limites de upload ou o tempo máximo de inferência.
 
 3. Abra no navegador o endereço local exibido pelo Streamlit (normalmente <http://localhost:8501>).
 
@@ -110,7 +110,10 @@ DEFAULT_CURRENCY=BRL
 MAX_FILE_SIZE_MB=15
 MAX_FILES_PER_BATCH=20
 OCR_LANGUAGE=por
+OLLAMA_TIMEOUT_SECONDS=300
 ```
+
+Se a inferência demorar, o app mostrará um indicador enquanto o modelo local processa o texto. Se atingir o tempo limite, verifique se o Ollama continua ativo com `ollama ps`; em computadores mais lentos, aumente `OLLAMA_TIMEOUT_SECONDS` no `.env` e reinicie o Streamlit.
 
 Execute a aplicação:
 
@@ -205,7 +208,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Edit `.env` if you want to change the local endpoint, model, currency, or upload limits:
+Edit `.env` if you want to change the local endpoint, model, currency, upload limits, or maximum inference time:
 
 ```dotenv
 OLLAMA_BASE_URL=http://localhost:11434
@@ -214,7 +217,10 @@ DEFAULT_CURRENCY=BRL
 MAX_FILE_SIZE_MB=15
 MAX_FILES_PER_BATCH=20
 OCR_LANGUAGE=por
+OLLAMA_TIMEOUT_SECONDS=300
 ```
+
+Inference speed depends on the model and computer. The app displays a spinner while Ollama works; if a request times out, check that Ollama is still active with `ollama ps`, increase `OLLAMA_TIMEOUT_SECONDS` in `.env` if needed, and restart Streamlit.
 
 ### 3. Start Ollama and download the model
 

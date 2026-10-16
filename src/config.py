@@ -18,10 +18,13 @@ class Settings:
     max_file_size_mb: int = int(os.getenv("MAX_FILE_SIZE_MB", "15"))
     max_files_per_batch: int = int(os.getenv("MAX_FILES_PER_BATCH", "20"))
     ocr_language: str = os.getenv("OCR_LANGUAGE", "por")
+    ollama_timeout_seconds: int = int(os.getenv("OLLAMA_TIMEOUT_SECONDS", "300"))
 
     def __post_init__(self) -> None:
         if self.max_file_size_mb < 1 or self.max_files_per_batch < 1:
             raise ValueError("Os limites de arquivos devem ser maiores que zero.")
+        if self.ollama_timeout_seconds < 1:
+            raise ValueError("OLLAMA_TIMEOUT_SECONDS deve ser maior que zero.")
         if len(self.default_currency) != 3 or not self.default_currency.isalpha():
             raise ValueError("DEFAULT_CURRENCY deve ser um código de três letras.")
         parsed_url = urlsplit(self.ollama_base_url)

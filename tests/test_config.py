@@ -27,3 +27,8 @@ def test_ollama_base_url_must_be_local_and_accepts_loopback(url):
 def test_rejects_nonlocal_ollama_endpoint(url):
     with pytest.raises(ValueError, match="endpoint local"):
         Settings(ollama_base_url=url)
+
+
+def test_ollama_timeout_must_be_positive():
+    with pytest.raises(ValueError, match="OLLAMA_TIMEOUT_SECONDS"):
+        Settings(ollama_timeout_seconds=0)

@@ -100,7 +100,10 @@ if st.button("Processar documentos", type="primary", disabled=not uploads):
                 seen.add(content_fingerprint(content))
                 try:
                     document_text = extract_text(uploaded.name, content)
-                    record = extract_expense(document_text, uploaded.name)
+                    with st.spinner(
+                        "Analisando localmente com Ollama; o tempo depende do modelo e do computador…"
+                    ):
+                        record = extract_expense(document_text, uploaded.name)
                     st.session_state.expenses.append(record)
                     st.success(f"{uploaded.name}: texto extraído e dados organizados.")
                 except DocumentReadError as error:
