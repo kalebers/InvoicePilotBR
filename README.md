@@ -4,6 +4,10 @@ Organize comprovantes e documentos de despesas com extração por IA local. O In
 
 > **Atenção:** os resultados da IA podem estar incorretos ou incompletos. Revise cada registro e marque explicitamente as linhas confirmadas antes de exportar.
 
+## Captura da interface
+
+![Interface do InvoicePilotBR mostrando a página inicial e o status da conexão local com o Ollama](screenshots/invoicepilotbr-interface.png)
+
 ## Como executar o projeto
 
 Após instalar os requisitos e dependências descritos abaixo, abra dois terminais na pasta do projeto:
@@ -152,6 +156,10 @@ Contribuições são bem-vindas. Abra uma issue para discutir mudanças maiores,
 Organize expense documents with local AI. InvoicePilotBR is primarily intended for **Brazilian invoices, receipts, and expense documents**, with local conventions in mind, such as BRL amounts and Portuguese-language documents. It is designed for Brazilian freelancers, independent professionals, and MEIs (Brazilian individual micro-entrepreneurs). It does not provide accounting, tax, or legal advice.
 
 > **Important:** AI extraction may be incorrect or incomplete. Review every record and explicitly mark it as confirmed before exporting.
+
+## Application screenshot
+
+![InvoicePilotBR user interface showing the home page and local Ollama connection status](screenshots/invoicepilotbr-interface.png)
 
 ## Features
 
