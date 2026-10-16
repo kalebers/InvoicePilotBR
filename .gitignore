@@ -1,0 +1,38 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+credentials.json
+service-account*.json
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# Python environments, caches, and test output
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.coverage
+htmlcov/
+
+# Local documents and application data
+/uploads/
+/receipts/
+/invoices/
+/documents/
+*.sqlite
+*.sqlite3
+*.db
+
+# Local logs and OS/editor files
+*.log
+.DS_Store
